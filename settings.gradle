@@ -1,0 +1,3 @@
+rootProject.name = "HD Steth SDK"
+include ':app'
+include ':HD Steth SDK'
