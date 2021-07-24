@@ -38,18 +38,3 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'org.apache.commons:commons-lang3:3.4'
 }
-
-afterEvaluate {
-    publishing{
-        publications{
-            release(MavenPublication){
-
-                from components.release
-
-                groupId = 'com.hdsteth'
-                artifactId = 'hdstethsdk'
-                version = '1.2'
-            }
-        }
-    }
-}
