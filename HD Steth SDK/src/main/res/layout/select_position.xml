@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Select Position : "
+            android:textColor="@android:color/black" />
+
+        <FrameLayout
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/chest" />
+
+            <TextView
+                android:id="@+id/tvA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="90dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="A"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tvP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="90dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="P"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+
+            <TextView
+                android:id="@+id/tvT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="T"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+
+            <TextView
+                android:id="@+id/tvV1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="V1"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+
+            <TextView
+                android:id="@+id/tvV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="135dp"
+                android:layout_marginTop="140dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="V2"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tvM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="140dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="M"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tvV6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="185dp"
+                android:layout_marginTop="140dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="V6"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tvV3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="145dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="V3"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tvV5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="V5"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tvV4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="180dp"
+                android:background="@drawable/round_black_border"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="V4"
+                android:textColor="@android:color/black"
+                android:textSize="13dp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Select Posture : "
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <RadioButton
+                android:id="@+id/rbSitting"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Sitting"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/rbStanding"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Standing"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <RadioButton
+                android:id="@+id/rbSupine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Supine"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+            <RadioButton
+                android:id="@+id/rbLeftLateral"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Left Lateral"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <RadioButton
+                android:id="@+id/rbRightLateral"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Right Lateral"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbDontShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Do not show this message again"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

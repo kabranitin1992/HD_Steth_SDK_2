@@ -1,4 +1,4 @@
-package com.android.hdstethsdk;
+package com.android.hdstethsdktesting;
 
 import org.junit.Test;
 
