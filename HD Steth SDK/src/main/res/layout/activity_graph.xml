@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="35dp"
+        android:text="PCG"
+        android:textColor="@android:color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="35dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/llGraph"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="21">
+
+                <com.androidplot.xy.XYPlot
+                    android:id="@+id/plot1"
+                    style="@style/FullScreenGraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="12"
+                    app:domainLineColor="@android:color/transparent"
+                    app:domainOriginLineColor="@android:color/transparent"
+                    app:rangeLineColor="@android:color/transparent"
+                    app:rangeOriginLineColor="@android:color/transparent" />
+
+
+                <com.androidplot.xy.XYPlot
+                    android:id="@+id/plot2"
+                    style="@style/FullScreenGraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="9"
+                    app:domainLineColor="@android:color/transparent"
+                    app:domainOriginLineColor="@android:color/transparent"
+                    app:rangeLineColor="@android:color/transparent"
+                    app:rangeOriginLineColor="@android:color/transparent"
+                    app:titleTextSize="12dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="35dp"
+        android:text="ECG"
+        android:textColor="@android:color/black"
+        android:textSize="14dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

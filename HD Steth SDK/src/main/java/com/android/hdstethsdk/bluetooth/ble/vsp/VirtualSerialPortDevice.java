@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
+
 import com.android.hdstethsdk.bluetooth.ble.BleBaseDeviceManager;
 import com.android.hdstethsdk.bluetooth.ble.IBleBaseActivityUiCallback;
 import com.android.hdstethsdk.utility.FifoQueue;

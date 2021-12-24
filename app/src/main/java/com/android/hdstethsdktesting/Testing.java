@@ -1,4 +1,4 @@
-package com.android.hdstethsdk;
+package com.android.hdstethsdktesting;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,11 +6,15 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.le.ScanCallback;
-import android.bluetooth.le.ScanResult;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -22,12 +26,12 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.android.hdstethsdk.hdsteth.ConnectToHDSteth;
 import com.android.hdstethsdk.hdsteth.HDSteth;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Testing extends AppCompatActivity {
 
@@ -36,13 +40,12 @@ public class Testing extends AppCompatActivity {
     TextView ecgValue, murValue, hsValue;
     Context context;
     ArrayList<BluetoothDevice> devices;
-    RadioButton rb10MPPA, rbNot10MPPA;
-    boolean is10MPA;
     int MY_PERMISSIONS_REQUEST = 1;
     String[] permissions = {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.BLUETOOTH, Manifest.permission.ACCESS_BACKGROUND_LOCATION};
     HDStethCallBack hdStethCallBack;
     ConnectToHDSteth connectToHDSteth;
+    String sConnetedDeviceType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,30 +68,11 @@ public class Testing extends AppCompatActivity {
             ecgValue = (TextView) findViewById(R.id.ecgValue);
             murValue = (TextView) findViewById(R.id.murValue);
             hsValue = (TextView) findViewById(R.id.hsValue);
-            rbNot10MPPA = (RadioButton) findViewById(R.id.rbNot10MPPA);
-            rb10MPPA = (RadioButton) findViewById(R.id.rb10MPPA);
-
 
             hdStethCallBack = new HDStethCallBack();
 
             connectToHDSteth = new ConnectToHDSteth();
             connectToHDSteth.init(context, hdStethCallBack);
-
-            rb10MPPA.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rb10MPPA.setChecked(true);
-                    rbNot10MPPA.setChecked(false);
-                }
-            });
-
-            rbNot10MPPA.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rb10MPPA.setChecked(false);
-                    rbNot10MPPA.setChecked(true);
-                }
-            });
 
             btnScan.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -99,6 +83,41 @@ public class Testing extends AppCompatActivity {
                 }
             });
 
+            btnDisconnect.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    connectToHDSteth.fnDisconnectDevice(context);
+                }
+            });
+
+            btnRecord.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+//                        Context context, int iSeconds, String sDirectory, String sName, String sAge, String sPatientId, String sGender,
+//                                String sHeight, String sHemoglobin, String sTemprature, String sWeight, String sBloodPressure, String sBloodGlucose,
+//                                String sSPO2, String sAddress, String sCity, String sState, String sZipcode, String sPhone, String sEmail, Bitmap
+//                        bmPatientImage
+
+                        createFolder();
+                        int iSecs = Integer.parseInt(etSecs.getText().toString());
+
+                        Drawable drawable = getResources().getDrawable(R.mipmap.ic_launcher);
+
+
+                        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                        Canvas canvas = new Canvas(bitmap);
+                        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                        drawable.draw(canvas);
+
+
+                        connectToHDSteth.fnRecordData(context, iSecs, context.getExternalCacheDir() + "/HDSteth",
+                                "Test User", "20");
+                    } catch (Exception e) {
+                        Toast.makeText(context, "Enter Valid Seconds", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         }
 
@@ -125,12 +144,18 @@ public class Testing extends AppCompatActivity {
 
 
         @Override
-        public void fnDetectDevice(ArrayList<BluetoothDevice> devices) {
-            if (rb10MPPA.isChecked()) {
-                is10MPA = true;
-            } else {
-                is10MPA = false;
+        public void fnReceiveData(String sPointType, int iPoint) {
+            if (sPointType.equalsIgnoreCase("ecg")) {
+                ecgValue.setText("ECG : " + iPoint);
+            } else if (sPointType.equalsIgnoreCase("mur")) {
+                murValue.setText("MUR : " + iPoint);
+            } else if (sPointType.equalsIgnoreCase("hs")) {
+                hsValue.setText("HS : " + iPoint);
             }
+        }
+
+        @Override
+        public void fnDetectDevice(ArrayList<BluetoothDevice> devices) {
             ArrayList<String> devicesNames = new ArrayList<String>();
             for (BluetoothDevice device : devices) {
                 devicesNames.add(device.getName());
@@ -153,7 +178,7 @@ public class Testing extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
 
 
-                    connectToHDSteth.fnConnectDevice(context, devices.get(which), is10MPA);
+                    connectToHDSteth.fnConnectDevice(context, devices.get(which));
 
 //                    HDSteth.fnConnectDevice(context, devices.get(which), is10MPA);
                     dialog.dismiss();
@@ -162,9 +187,30 @@ public class Testing extends AppCompatActivity {
             builderSingle.show();
         }
 
+        @Override
+        public void fnRecordData(String[] sPaths) {
+//            sPaths[0] = ECG Path;
+//            sPaths[1] = HS Path;
+//            sPaths[2] = MUR Path;
+//            sPaths[3] = Wavefile Path Path;
+
+            Toast.makeText(context, sPaths[0], Toast.LENGTH_SHORT).show();
+        }
 
         @Override
-        public void fnConnected() {
+        public void fnDisconnected() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(context, "Disconnected", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+
+        @Override
+        public void fnConnected(String sDeviceType) {
+            sConnetedDeviceType = sDeviceType;
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {

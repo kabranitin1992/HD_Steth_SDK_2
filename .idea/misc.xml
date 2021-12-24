@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/action_bar_background.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/button_bkground.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/custom_progressbar.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/edit_text_border.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/ic_launcher_background.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/newgraph.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/round.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/round_black_border.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/round_color_black.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/drawable/white_round_black_border.xml" value="0.16197916666666667" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/layout/activity_graph.xml" value="0.135258358662614" />
+        <entry key="..\:/Android Projects/HDStethSDK/HD Steth SDK/src/main/res/layout/select_position.xml" value="0.14130434782608695" />
+        <entry key="..\:/Android Projects/HDStethSDK/app/src/main/res/layout/activity_testing.xml" value="0.278125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
